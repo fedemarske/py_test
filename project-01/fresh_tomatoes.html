@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Star Wars Prequels</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body{
+            background-color: black;
+            color: white;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+        .container div.movie-tile:hover{
+            background-color:transparent;
+            border: 1px solid;
+        }
+        .storyline{
+            height: 85px;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.trailer-button', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="container">
+        <h1 class="text-center">Star Wars Prequels</h1>
+        <div class="row">
+        
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="http://img.lum.dolimg.com/v1/images/Star-Wars-Phantom-Menace-I-Poster_3c1ff9eb.jpeg?region=15%2C9%2C651%2C979&width=480" width="220" height="342">
+      <div class="caption">
+        <h2>Star Wars 1</h2>
+        <p class="storyline">Two Jedi Knights escape a hostile blockade to find allies and come across a young boy who may bring balance to the Force.</p>
+        <p>
+        <a href="#" class="btn btn-primary trailer-button" role="button" data-trailer-youtube-id="bD7bpG-zDJQ" data-toggle="modal" data-target="#trailer">Watch Trailer</a> 
+        <a href="https://es.wikipedia.org/wiki/Star_Wars:_Episode_I_-_The_Phantom_Menace" target="_blank" class="btn btn-default" role="button">More on Wikipedia</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="https://s-media-cache-ak0.pinimg.com/originals/d3/e3/1e/d3e31e5775d1aed0820b555da52d0677.jpg" width="220" height="342">
+      <div class="caption">
+        <h2>Star Wars 2</h2>
+        <p class="storyline">Ten years after initially meeting, Anakin Skywalker shares a forbidden romance with Padme, while Obi-Wan investigates an assassination attempt on the Senator.</p>
+        <p>
+        <a href="#" class="btn btn-primary trailer-button" role="button" data-trailer-youtube-id="CO2OLQ2kiq8" data-toggle="modal" data-target="#trailer">Watch Trailer</a> 
+        <a href="https://es.wikipedia.org/wiki/Star_Wars:_Episode_II_-_Attack_of_the_Clones" target="_blank" class="btn btn-default" role="button">More on Wikipedia</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="http://cdn.traileraddict.com/content/20th-century-fox/starwars3.jpg" width="220" height="342">
+      <div class="caption">
+        <h2>Star Wars 3</h2>
+        <p class="storyline">During the near end of the clone wars, Darth Sidious has revealed himself and is ready to execute the last part of his plan to rule the Galaxy.</p>
+        <p>
+        <a href="#" class="btn btn-primary trailer-button" role="button" data-trailer-youtube-id="5UnjrG_N8hU" data-toggle="modal" data-target="#trailer">Watch Trailer</a> 
+        <a href="https://es.wikipedia.org/wiki/Star_Wars:_Episode_III_-_Revenge_of_the_Sith" target="_blank" class="btn btn-default" role="button">More on Wikipedia</a></p>
+      </div>
+    </div>
+  </div>
+
+        </div>
+    </div>
+  </body>
+</html>
